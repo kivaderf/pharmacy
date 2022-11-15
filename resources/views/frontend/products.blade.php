@@ -1,110 +1,62 @@
 @extends('frontend.layout.content')
 
 @section('content-container')
-    <div class="container page-content">
-        <ul class="row products-grid">
-            <li class="col-sm-6 col-md-4">
-                <div class="products-image">
-                    <img src="{{url('frontend/img/paralen.jpg')}}" alt="Paralen">
-                </div>
-                <div class="products-heading">
-                    <h1>Paralen</h1>
-                </div>
-                <div class="products-description">
-                    <p>Fusce venenatis bibendum leo, non tincidunt id.</p>
-                </div>
-                <div class="products-button">
-                    <button type="button" class="btn btn-success">
-                        <i class="bi bi-cart4"></i>
-                        12,03€
-                    </button>
-                </div>
-            </li>
-            <li class="col-sm-6 col-md-4">
-                <div class="products-image">
-                    <img src="{{url('frontend/img/ibalgin.jpg')}}" alt="Ibalgin">
-                </div>
-                <div class="products-heading">
-                    <h1>Ibalgin</h1>
-                </div>
-                <div class="products-description">
-                    <p>Fusce venenatis bibendum leo, non tincidunt id.</p>
-                </div>
-                <div class="products-button">
-                    <button type="button" class="btn btn-success">
-                        <i class="bi bi-cart4"></i>
-                        12,03€
-                    </button>
-                </div>
-            </li>
-            <li class="col-sm-6 col-md-4">
-                <div class="products-image">
-                    <img src="{{url('frontend/img/cierneuhlie.jpg')}}" alt="Carbosorb">
-                </div>
-                <div class="products-heading">
-                    <h1>Carbosorb</h1>
-                </div>
-                <div class="products-description">
-                    <p>Fusce venenatis bibendum leo, non tincidunt id.</p>
-                </div>
-                <div class="products-button">
-                    <button type="button" class="btn btn-success">
-                        <i class="bi bi-cart4"></i>
-                        12,03€
-                    </button>
-                </div>
-            </li>
-            <li class="col-sm-6 col-md-4">
-                <div class="products-image">
-                    <img src="{{url('frontend/img/calciumchloratum.jpg')}}" alt="Calcium">
-                </div>
-                <div class="products-heading">
-                    <h1>Calcium</h1>
-                </div>
-                <div class="products-description">
-                    <p>Fusce venenatis bibendum leo, non tincidunt id.</p>
-                </div>
-                <div class="products-button">
-                    <button type="button" class="btn btn-success">
-                        <i class="bi bi-cart4"></i>
-                        12,03€
-                    </button>
-                </div>
-            </li>
-            <li class="col-sm-6 col-md-4">
-                <div class="products-image">
-                    <img src="{{url('frontend/img/brufen.jpg')}}" alt="Brufen">
-                </div>
-                <div class="products-heading">
-                    <h1>Brufen</h1>
-                </div>
-                <div class="products-description">
-                    <p>Fusce venenatis bibendum leo, non tincidunt id.</p>
-                </div>
-                <div class="products-button">
-                    <button type="button" class="btn btn-success">
-                        <i class="bi bi-cart4"></i>
-                        12,03€
-                    </button>
-                </div>
-            </li>
-            <li class="col-sm-6 col-md-4">
-                <div class="products-image">
-                    <img src="{{url('frontend/img/lavekan.jpg')}}" alt="Lavekan">
-                </div>
-                <div class="products-heading">
-                    <h1>Lavekan</h1>
-                </div>
-                <div class="products-description">
-                    <p>Fusce venenatis bibendum leo, non tincidunt id.</p>
-                </div>
-                <div class="products-button">
-                    <button type="button" class="btn btn-success">
-                        <i class="bi bi-cart4"></i>
-                        12,03€
-                    </button>
-                </div>
-            </li>
-        </ul>
-    </div>
+
+@if($message = Session::get('success'))
+
+<div class="alert alert-success">
+	{{ $message }}
+</div>
+
+@endif
+
+<div class="card">
+	<div class="card-header">
+		<div class="row">
+			<div class="col col-md-6"><b>Student Data</b></div>
+			<div class="col col-md-6">
+				<a href="{{ route('products') }}" class="btn btn-success btn-sm float-end">Add</a><!-- route('create') -->
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<table class="table table-bordered">
+			<tr>
+				<th>Image</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Action</th>
+			</tr>
+			@if(count($data) > 0)
+
+				@foreach($data as $row)
+
+					<tr>
+						<td><img src="{{ asset('/frontend/img/' . $row->product_image) }}" width="75" /></td>
+						<td>{{ $row->student_name }}</td>
+						<td>{{ $row->student_email }}</td>
+						<td>{{ $row->student_gender }}</td>
+						<td>
+							<form method="post" action="{{ route('products', $row->id) }}"><!-- route('destroy') -->
+								@csrf
+								@method('DELETE')
+								<a href="{{ route('products', $row->id) }}" class="btn btn-primary btn-sm">View</a><!-- route('show') -->
+								<a href="{{ route('products', $row->id) }}" class="btn btn-warning btn-sm">Edit</a><!-- route('edit') -->
+								<input type="submit" class="btn btn-danger btn-sm" value="Delete" />
+							</form>
+						</td>
+					</tr>
+
+				@endforeach
+
+			@else
+				<tr>
+					<td colspan="5" class="text-center">No Data Found</td>
+				</tr>
+			@endif
+		</table>
+		{!! $data->links() !!}
+	</div>
+</div>
 @endsection
