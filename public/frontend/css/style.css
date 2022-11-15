@@ -1,0 +1,221 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto-Regular.ttf");
+}
+
+/* Header */
+p {
+    font-family: "Roboto", sans-serif;
+}
+
+header .navbar {
+    background-color: #74C18A;
+    border-bottom: 1px #66B37C solid;
+}
+
+header ul.navbar-nav {
+    margin: 0 auto;
+    /*text-align: center;*/
+}
+
+header ul .navbar-brand img,
+.phone-brand img {
+    height: 46px;
+}
+
+header .navbar div .phone-brand {
+    margin: 0;
+}
+
+.navbar-nav li .navbar-brand {
+    display: none;
+}
+
+/* Body */
+body {
+    padding: 70px 0;
+}
+
+.page-content {
+    margin-top: 50px;
+}
+
+.page-content div div {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.page-content .home-image img {
+    border-radius: 50%;
+    width: 700px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Products */
+.products-grid {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.products-grid li {
+    padding: 0 50px;
+    margin-bottom: 70px;
+}
+
+.products-image {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.products-image img {
+    width: 280px;
+    height: 215px;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+/* Contact */
+#contact {
+    margin-top: 20px;
+}
+
+#contact .contact-kontakt {
+    margin-bottom: 20px;
+}
+
+#contact .contact-heading {
+    margin-bottom: 20px;
+}
+
+#contact div ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#contact div li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#contact div ul li p {
+    font-size: 20px;
+}
+
+.contact-icons ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.contact-icons ul li .facebook-icon i:hover {
+    color: #0060cb;
+    transition: 300ms;
+}
+
+.contact-icons ul li .instagram-icon i:hover {
+    color: #fc7800;
+    transition: 300ms;
+}
+
+.contact-icons ul li .youtube-icon i:hover {
+    color: #fe3410;
+    transition: 300ms;
+}
+
+#contact-form .contact-form-button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #74C18A;
+    border-top: 1px #66B37C solid;
+}
+
+#copyright {
+    margin-top: 10px;
+}
+
+#copyright div div:first-child p {
+    text-align: left;
+}
+
+#copyright div div:last-child p {
+    text-align: right;
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+    header ul .navbar-brand {
+        margin: 0;
+        padding: 0 50px;
+    }
+
+    .phone-brand {
+        display: none;
+    }
+
+    ul.navbar-nav li a,
+    #copyright div p {
+        font-size: 20px;
+    }
+
+    .navbar-nav li .navbar-brand {
+        display: block;
+    }
+
+    #contact {
+        margin-top: 50px;
+    }
+
+    #contact .contact-kontakt {
+        margin-bottom: 0;
+    }
+
+    #contact .contact-heading {
+        margin-bottom: 40px;
+    }
+
+    #contact-form .contact-form-textfield {
+        margin-bottom: 10px;
+    }
+
+    #contact-form .contact-form-button button {
+        width: 100%;
+    }
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+
+
+}
+
+/*X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+
+/*XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+
+
+
+}
