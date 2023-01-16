@@ -130,6 +130,12 @@ body {
     margin-top: 10px;
 }
 
+/* Countdown */
+#countdown {
+    display: flex;
+    justify-content: center;
+}
+
 /* Footer */
 footer {
     position: absolute;
